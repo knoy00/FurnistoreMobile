@@ -14,6 +14,12 @@ function HomeScreen() {
                 </View>
                 <Text>{item.name}</Text>
                 <Text style={styles.productPrice}>Price: ${item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
+                {item.discount && (
+                    <View style={styles.discount_container}>
+                        <Text style={styles.discount}>-{item.discount}%</Text>
+                    </View>
+                )}
+
             </View>
         )
     })
@@ -212,15 +218,29 @@ const styles = StyleSheet.create({
     },
     productImagePlaceholder: {
         width: '105%',
-        height: 120,
+        height: 200,
         backgroundColor: '#FFEEE5',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        padding: 10,
+        position: 'relative',
     },
     productPrice: {
         marginTop: 5,
         fontWeight: 'bold',
         fontSize: 15
+    },
+    discount_container: {
+        position: 'absolute',
+        left: 20,
+        top: 17,
+        borderRadius: 10,
+        padding: 5,
+        backgroundColor: '#FF5F00',
+        width: 50,
+    },
+    discount: {
+        textAlign: 'center',
     },
 });

@@ -58,11 +58,10 @@ const Furniture = {
         },
         {
             id: 8,
-            name: 'Grey Sofa',
+            name: 'Black Pearl',
             image: require('../../assets/images/coffee-wawa.png'),
             description: 'A comfortable and stylish chair.',
             price: '2300',
-            discount: '50'
         },
         {
             id: 9,
