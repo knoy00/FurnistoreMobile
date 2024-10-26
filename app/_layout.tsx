@@ -10,7 +10,7 @@ const Layout = () => {
     // Simulating a loading process (like fetching data)
     const timer = setTimeout(() => {
       setIsLoading(false); // Hide the splash screen after 3 seconds
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer); // Clean up the timer
   }, []);
