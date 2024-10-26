@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Button } from "react-native";
+import { View, StyleSheet, Text, Button, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function HomeScreen() {
@@ -13,23 +13,26 @@ function HomeScreen() {
                     <Icon name="shopping-cart" size={25} color="#8C8C8C" />
                 </View>
             </View>
-            <View style={styles.buttons}>
-                <Button 
-                title="All"
-                onPress={() => alert('Categories')}
-                />
-                <Button 
-                title="All"
-                onPress={() => alert('Categories')}
-                />
-                <Button 
-                title="All"
-                onPress={() => alert('Categories')}
-                />
-                <Button 
-                title="All"
-                onPress={() => alert('Categories')}
-                />
+            <View style={styles.buttons_container}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.button_text}>Home</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button_inactive}>
+                    <Text>Chair</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button_inactive}>
+                    <Text>Sofa</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button_inactive}>
+                    <Text>Dining </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button_inactive}>
+                    <Text>All</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -68,14 +71,48 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 15
     },
-    buttons: {
+    buttons_container: {
         position: 'absolute',
-        top: 150,
+        top: 130,
         width:  '100%',
         height: 70,
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 15,
+        flexDirection: 'row',
+        fontSize: 25
+    },
+    button: {
+        fontSize: 25,
+        marginHorizontal: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        backgroundColor: 'white',
+        borderRadius: 30,
+        borderWidth: 2,
+        borderColor: '#FF5F00',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    button_text: {
+        color: '#FF5F00',
+        fontWeight: 'bold'
+    },
+    button_text_inactive: {
+        color: '#DCDCDC',
+        fontWeight: 'bold'
+    },
+    button_inactive:{
+        fontSize: 25,
+        marginHorizontal: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        backgroundColor: 'white',
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: '#DCDCDC',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
