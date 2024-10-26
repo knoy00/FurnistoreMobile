@@ -13,7 +13,7 @@ function HomeScreen() {
                     <Image source={item.image} style={{width: '100%', height: '100%'}}/>
                 </View>
                 <Text>{item.name}</Text>
-                <Text style={styles.productPrice}>Price: ${item.discount ? parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
+                <Text style={styles.productPrice}>Price: ${item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
             </View>
         )
     })
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     productItem: {
-        width: '45%',
+        width: '50%',
         backgroundColor: 'white',
         borderRadius: 10,
         padding: 10,
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     },
     productImagePlaceholder: {
         width: '100%',
-        height: 100,
+        height: 150,
         backgroundColor: '#E0E0E0',
         borderRadius: 10,
         justifyContent: 'center',
