@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from '../src/SplashScreen';
 import HomeScreen from '../src/HomeScreen';
+import ImageData from '../src/Data/ImageData';
 
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);

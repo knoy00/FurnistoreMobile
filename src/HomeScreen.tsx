@@ -1,8 +1,23 @@
 import React from "react";
-import { View, StyleSheet, Text, Button, TouchableOpacity, ScrollView } from "react-native";
+import { View, StyleSheet, Text, Button, TouchableOpacity, ScrollView, Image } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Furniture from '../src/Data/ImageData';
+
 
 function HomeScreen() {
+    const img = Furniture.Images;
+    const data = img.map((item) => {
+        return(
+            <View key={item.id} style={styles.productItem}>
+                <View style={styles.productImagePlaceholder}>
+                    <Image source={item.image} style={{width: '100%', height: '100%'}}/>
+                </View>
+                <Text>{item.name}</Text>
+                <Text style={styles.productPrice}>Price: ${item.discount ? parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
+            </View>
+        )
+    })
+    
     return (
         <View style={styles.container}>
             <View style={styles.navbar}>
@@ -37,30 +52,23 @@ function HomeScreen() {
 
             <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
                 <View style={styles.content}>
-                        <View style={styles.promoContainer}>
-                            <Text style={styles.promoText}>Get your Special sale up to 50%</Text>
+                    <View style={styles.promoContainer}>
+                        <View style={styles.promoImage}>
+                            <Image source={require('../assets/images/softChair.jpg')} style={{width: '100%', height: '100%'}} />
+                        </View>
+                        <View style={styles.promoTextCtn}>
+                            <Text style={styles.promoText}>Get your Special sale up to 30%</Text>
                             <TouchableOpacity style={styles.promoButton}>
                                 <Text style={styles.promoButtonText}>Shop Now</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.promoContainer}>
-                            <Text style={styles.promoText}>Get your Special sale up to 50%</Text>
-                            <TouchableOpacity style={styles.promoButton}>
-                                <Text style={styles.promoButtonText}>Shop Now</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.promoContainer}>
-                            <Text style={styles.promoText}>Get your Special sale up to 50%</Text>
-                            <TouchableOpacity style={styles.promoButton}>
-                                <Text style={styles.promoButtonText}>Shop Now</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.promoContainer}>
-                            <Text style={styles.promoText}>Get your Special sale up to 50%</Text>
-                            <TouchableOpacity style={styles.promoButton}>
-                                <Text style={styles.promoButtonText}>Shop Now</Text>
-                            </TouchableOpacity>
-                        </View>
+                    </View>
+                    <View style={styles.productGrid}>
+                        {data}
+                    </View>
+
+                   
+                        
                 </View>
             </ScrollView>
         </View>
@@ -144,18 +152,20 @@ const styles = StyleSheet.create({
         
     },
     promoContainer: {
-        width: '90%',
+        width: '95%',
         padding: 20,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#FFEEE5',
         borderRadius: 10,
-        alignItems: '',
+        justifyContent: 'space-between',
         marginBottom: 20,
         height: 200,
-        marginTop: 0
+        marginTop: 0,
+        flex: 1,
+        flexDirection: 'row'
     },
     promoText: {
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 20,
+        fontWeight: 'light',
         marginBottom: 10,
         textAlign: 'center',
     },
@@ -164,9 +174,52 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         paddingVertical: 10,
         paddingHorizontal: 20,
+        marginTop: 10
     },
     promoButtonText: {
         color: 'white',
         fontWeight: 'bold',
-    }, 
+    },
+    promoImage: {
+        width: '50%',
+        height: '100%',
+        resizeMode: 'cover',
+        borderRadius: 10,
+        marginBottom: 0,
+        marginTop: 0,
+        backgroundColor: '#FF5F00'
+    },
+    promoTextCtn: {
+        width: '50%',
+        padding: 20,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    productGrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+    },
+    productItem: {
+        width: '45%',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 10,
+        alignItems: 'center',
+    },
+    productImagePlaceholder: {
+        width: '100%',
+        height: 100,
+        backgroundColor: '#E0E0E0',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    productPrice: {
+        marginTop: 5,
+        fontWeight: 'bold',
+    },
 });
