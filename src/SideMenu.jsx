@@ -1,13 +1,28 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome'; 
 
-
 function Menu(){
-    const [bedroomOpen, setbedroomOpen] = useState(false);
+    const [bedroomOpen, setBedroomOpen] = useState(false);
+    const animatedValue = useRef(new Animated.Value(0)).current;
+
     const toggleBedroom = () => {
-        setbedroomOpen(!bedroomOpen);
-    }
+        setBedroomOpen(!bedroomOpen);
+
+        // Reset animation for opening or closing the dropdown
+        Animated.timing(animatedValue, {
+            toValue: bedroomOpen ? 0 : 1, // fade out if closing
+            duration: 800,
+            easing: Easing.in(Easing.ease),
+            useNativeDriver: true,
+        }).start();
+    };
+
+    // Define the animated style for opacity
+    const animatedStyle = {
+        opacity: animatedValue,
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.menu}>
@@ -21,32 +36,28 @@ function Menu(){
                     <Text style={styles.text}>Bed</Text>
                     <Icon name="angle-down" size={25} color="#ffffff" style={{marginLeft: 'auto'}}/>
                 </TouchableOpacity>
+
                 {bedroomOpen && (
                     <>
                         <TouchableOpacity style={styles.dropDown}>
-                            <View style={styles.subDropdown}>
+                            <Animated.View style={[styles.subDropdown, animatedStyle]}>
                                 <Text style={styles.dropDownText}>Queen Size</Text>
-                            </View>
+                            </Animated.View>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.dropDown}>
-                            <View style={styles.subDropdown}>
+                            <Animated.View style={[styles.subDropdown, animatedStyle]}>
                                 <Text style={styles.dropDownText}>King Size</Text>
-                            </View>
+                            </Animated.View>
                         </TouchableOpacity>
                     </>
-                    
-
                 )}
-
 
                 <TouchableOpacity style={styles.menuItem}>
                     <Icon name="info-circle" size={25} color="#ffffff" />
                     <Text style={styles.text}>About us</Text>
                 </TouchableOpacity>
             </View>
-           
-
         </View>
     )
 }
@@ -95,6 +106,6 @@ const styles = StyleSheet.create({
         color: '#ff5f00',
         paddingLeft: 0,
         textAlign: 'left',
-        marginBottom: 10
+        marginBottom: 10,
     }
 });
