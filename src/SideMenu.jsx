@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 function Menu(){
     const [bedroomOpen, setBedroomOpen] = useState(false);
+    const [livingroomOpen, setLivingroomOpen] = useState(false);
     const animatedValue = useRef(new Animated.Value(0)).current;
 
     const toggleBedroom = () => {
@@ -52,6 +53,8 @@ function Menu(){
                         </TouchableOpacity>
                     </>
                 )}
+
+
 
                 <TouchableOpacity style={styles.menuItem}>
                     <Icon name="info-circle" size={25} color="#ffffff" />
