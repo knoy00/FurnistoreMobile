@@ -12,7 +12,7 @@ function HomeScreen() {
                 <View style={styles.productImagePlaceholder}>
                     <Image source={item.image} style={{width: '100%', height: '100%'}} resizeMode="contain"/>
                 </View>
-                <Text>{item.name}</Text>
+                <Text style={styles.productName}>{item.name}</Text>
                 <Text style={styles.productPrice}>Price: ${item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
                 {item.discount && (
                     <View style={styles.discount_container}>
@@ -60,7 +60,7 @@ function HomeScreen() {
                 <View style={styles.content}>
                     <View style={styles.promoContainer}>
                         <View style={styles.promoImage}>
-                            <Image source={require('../assets/images/softChair.jpg')} style={{width: '100%', height: '100%'}} />
+                            <Image source={require('../assets/images/room-white.jpg')} style={{width: '100%', height: '100%', borderRadius: 20,}} />
                         </View>
                         <View style={styles.promoTextCtn}>
                             <Text style={styles.promoText}>Get your Special sale up to 30%</Text>
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
         width: '50%',
         height: '100%',
         resizeMode: 'cover',
-        borderRadius: 10,
+        borderRadius: 20,
         marginBottom: 0,
         marginTop: 0,
         backgroundColor: '#FF5F00'
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
-        alignItems: 'center',
+        // alignItems: 'center',
     },
     productImagePlaceholder: {
         width: '105%',
@@ -225,6 +225,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         position: 'relative',
+    },
+    productName: {
+        fontSize: 18,
+        color: '#787878',
+        marginTop: 10,
     },
     productPrice: {
         marginTop: 5,
@@ -242,5 +247,7 @@ const styles = StyleSheet.create({
     },
     discount: {
         textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'white'
     },
 });
