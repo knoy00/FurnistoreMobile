@@ -30,7 +30,7 @@ const Furniture = {
             image: require('../../assets/images/smallTable.png'),
             description: 'A comfortable and stylish chair.',
             price: '2300',
-            discount: '50'
+            discount: '15'
         },
         {
             id: 5,
@@ -42,19 +42,19 @@ const Furniture = {
         },
         {
             id: 6,
-            name: 'Grey Sofa',
+            name: 'Red Sofa - Astral',
             image: require('../../assets/images/redSofa.png'),
             description: 'A comfortable and stylish chair.',
             price: '2300',
-            discount: '50'
+            discount: '5'
         },
         {
             id: 7,
-            name: 'Grey Sofa',
+            name: 'Bar Stool - Herman',
             image: require('../../assets/images/barStool1.png'),
             description: 'A comfortable and stylish chair.',
-            price: '2300',
-            discount: '50'
+            price: '400',
+            
         },
         {
             id: 8,
@@ -65,11 +65,11 @@ const Furniture = {
         },
         {
             id: 9,
-            name: 'Grey Sofa',
+            name: 'Queen Size Bed - Carel',
             image: require('../../assets/images/queenFrameless.png'),
             description: 'A comfortable and stylish chair.',
-            price: '2300',
-            discount: '50'
+            price: '2990',
+            discount: '2'
         },
         {
             id: 10,

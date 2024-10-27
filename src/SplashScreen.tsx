@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, ImageBackground, Animated } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Animated, Easing } from 'react-native';
 
 const SplashScreen = ({ onFadeComplete }) => {
   const fadeAnim = useRef(new Animated.Value(1)).current; // Initial opacity is 1
@@ -7,9 +7,10 @@ const SplashScreen = ({ onFadeComplete }) => {
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 0,           // Fade to opacity 0
-      duration: 500,       // 1 second fade duration
-      delay: 4000,          // 2-second delay before fading
+      duration: 100,       // 1 second fade duration
+      delay: 3000,          // 2-second delay before fading
       useNativeDriver: true,
+      easing: Easing.inOut(Easing.ease),
     }).start(onFadeComplete); // Call onFadeComplete after animation
   }, [fadeAnim, onFadeComplete]);
 

@@ -13,7 +13,7 @@ function HomeScreen() {
                     <Image source={item.image} style={{width: '100%', height: '100%'}} resizeMode="contain"/>
                 </View>
                 <Text style={styles.productName}>{item.name}</Text>
-                <Text style={styles.productPrice}>Price: ${item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
+                <Text style={styles.productPrice}>Price: GH₵{item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
                 {item.discount && (
                     <View style={styles.discount_container}>
                         <Text style={styles.discount}>-{item.discount}%</Text>
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         height: 200,
         marginTop: 0,
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     promoText: {
         fontSize: 20,
