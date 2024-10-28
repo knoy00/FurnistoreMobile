@@ -17,7 +17,7 @@ const SplashScreen = ({ onFadeComplete }) => {
   return (
     <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
       <ImageBackground
-        source={require('../assets/images/splash.jpg')}
+        source={require('../assets/images/bedroom3B.jpg')}
         style={styles.background}
         resizeMode="cover" 
       >

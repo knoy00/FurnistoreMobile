@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Furniture from '../src/Data/ImageData';
 
 
-function HomeScreen() {
+function HomeScreen({onHamburgerPress}) {
     const img = Furniture.Images;
     const data = img.map((item) => {
         return(
@@ -27,7 +27,7 @@ function HomeScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.navbar}>
-                <Icon name="bars" size={25} color="#8C8C8C" />
+                <Icon name="bars" size={25} color="#8C8C8C" onPress={onHamburgerPress}/>
                 <Text style={styles.text}><Text style={styles.innerText}>Furni</Text>Store</Text>
                 <View style={styles.navbarRight}>
                     <Icon name="search" size={25} color="#8C8C8C" />
@@ -251,3 +251,4 @@ const styles = StyleSheet.create({
         color: 'white'
     },
 });
+
