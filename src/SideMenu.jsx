@@ -5,6 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 function Menu(){
     const [bedroomOpen, setBedroomOpen] = useState(false);
     const [livingroomOpen, setLivingroomOpen] = useState(false);
+    const [diningroomOpen, setDiningroomOpen] = useState(false);
+    const [officeOpen, setofficeOpen] = useState(false);
+    const [kitchenOpen, setKitchenOpen] = useState(false);
     
 
     const toggleBedroom = () => {
@@ -14,6 +17,18 @@ function Menu(){
     const toggleLivingroom = () => {
         setLivingroomOpen(!livingroomOpen);
     };
+
+    const toggleDiningroom = () => {
+        setDiningroomOpen(!diningroomOpen);
+    }
+
+    const toggleOffice = () => {
+        setofficeOpen(!officeOpen);
+    }
+
+    const toggleKitchen = () => {
+        setKitchenOpen(!kitchenOpen);
+    }
 
    
     
@@ -78,8 +93,82 @@ function Menu(){
 
                 )}
 
+                {/* //Living room dropdown */}
+                <TouchableOpacity style={styles.menuItem} onPress={toggleDiningroom}>
+                    <Icon name="cutlery" size={25} color="#ffffff" />
+                    <Text style={styles.text}>Dining</Text>
+                    <Icon name="angle-down" size={25} color="#ffffff" style={{marginLeft: 'auto'}}/>
+                </TouchableOpacity>
+
+                {diningroomOpen && (
+                    <>
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>Sofa</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>Table</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>TV Console</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </>
+
+                )}
+
+                {/* //Living room dropdown */}
+                <TouchableOpacity style={styles.menuItem} onPress={toggleOffice}>
+                    <Icon name="briefcase" size={25} color="#ffffff" />
+                    <Text style={styles.text}>Office</Text>
+                    <Icon name="angle-down" size={25} color="#ffffff" style={{marginLeft: 'auto'}}/>
+                </TouchableOpacity>
+
+                {officeOpen && (
+                    <>
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>Sofa</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>Table</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>TV Console</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </>
+
+                )}
 
 
+
+
+
+                <TouchableOpacity style={styles.menuItem}>
+                    <Icon name="tags" size={25} color="#ffffff" />
+                    <Text style={styles.text}>Sales and Promos</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.menuItem}>
+                    <Icon name="user" size={25} color="#ffffff" />
+                    <Text style={styles.text}>Account</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.menuItem}>
+                    <Icon name="phone" size={25} color="#ffffff" />
+                    <Text style={styles.text}>Customer Service</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.menuItem}>
                     <Icon name="info-circle" size={25} color="#ffffff" />
                     <Text style={styles.text}>About us</Text>
@@ -118,7 +207,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#ffffff',
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
     },
     dropdown: {
         paddingLeft: 10,
