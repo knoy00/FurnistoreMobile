@@ -5,24 +5,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 function Menu(){
     const [bedroomOpen, setBedroomOpen] = useState(false);
     const [livingroomOpen, setLivingroomOpen] = useState(false);
-    const animatedValue = useRef(new Animated.Value(0)).current;
+    
 
     const toggleBedroom = () => {
         setBedroomOpen(!bedroomOpen);
-
-        // Reset animation for opening or closing the dropdown
-        Animated.timing(animatedValue, {
-            toValue: bedroomOpen ? 0 : 1, // fade out if closing
-            duration: 800,
-            easing: Easing.in(Easing.ease),
-            useNativeDriver: true,
-        }).start();
     };
 
-    // Define the animated style for opacity
-    const animatedStyle = {
-        opacity: animatedValue,
+    const toggleLivingroom = () => {
+        setLivingroomOpen(!livingroomOpen);
     };
+
+   
+    
 
     return (
         <View style={styles.container}>
@@ -34,24 +28,54 @@ function Menu(){
 
                 <TouchableOpacity style={styles.menuItem} onPress={toggleBedroom}>
                     <Icon name="bed" size={25} color="#ffffff" />
-                    <Text style={styles.text}>Bed</Text>
+                    <Text style={styles.text}>Bed Room</Text>
                     <Icon name="angle-down" size={25} color="#ffffff" style={{marginLeft: 'auto'}}/>
                 </TouchableOpacity>
 
                 {bedroomOpen && (
                     <>
                         <TouchableOpacity style={styles.dropDown}>
-                            <Animated.View style={[styles.subDropdown, animatedStyle]}>
+                            <Animated.View style={[styles.subDropdown]}>
                                 <Text style={styles.dropDownText}>Queen Size</Text>
                             </Animated.View>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.dropDown}>
-                            <Animated.View style={[styles.subDropdown, animatedStyle]}>
+                            <Animated.View style={[styles.subDropdown]}>
                                 <Text style={styles.dropDownText}>King Size</Text>
                             </Animated.View>
                         </TouchableOpacity>
                     </>
+                )}
+
+                {/* //Living room dropdown */}
+                <TouchableOpacity style={styles.menuItem} onPress={toggleLivingroom}>
+                    <Icon name="bed" size={25} color="#ffffff" />
+                    <Text style={styles.text}>Living Room</Text>
+                    <Icon name="angle-down" size={25} color="#ffffff" style={{marginLeft: 'auto'}}/>
+                </TouchableOpacity>
+
+                {livingroomOpen && (
+                    <>
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>Sofa</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>Table</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.dropDown}>
+                            <View  style={styles.subDropdown}>
+                                <Text style={styles.dropDownText}>TV Console</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </>
+
                 )}
 
 
