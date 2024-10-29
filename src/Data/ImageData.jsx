@@ -2,9 +2,9 @@ const Furniture = {
     Images: [
         {
             id: 1,
-            name: 'Grey Sofa',
+            name: 'Grey Sofa - Tyele',
             image: require('../../assets/images/greySofa.png'),
-            description: 'A comfortable and stylish chair. In this app, the home screen displays a list of products with images, names, and prices. Each product also displays any applicable discount percentage, calculated and displayed dynamically. Users can tap on any product to view more details on a dedicated ItemOverview page.',
+            description: 'A comfortable and stylish chair. In this app, the home screen displays a list of products with images, names, and prices. Each product also displays any applicable discount percentage, calculated and displayed dynamically. Users can tap on any product to view more details on a dedicated.',
             price: '2300',
             discount: '5',
             rate: '4.3',
