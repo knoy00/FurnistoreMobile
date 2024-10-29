@@ -7,9 +7,10 @@ import Menu from '../src/SideMenu';
 import Cart from '../src/Cart';
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {RootStackParamList} from '../src/Types';
 
 const Layout = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParamList>();
 
   const [isLoading, setIsLoading] = useState(true);
   const [menuVisible, setMenuVisible] = useState(false);
@@ -33,31 +34,41 @@ const Layout = () => {
 
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator>
-          <View style={{ flex: 1 }}>
-            {/* Menu Side Bar */}
-            <Animated.View style={[styles.menuContainer, { transform: [{ translateX: menuAnimation }] }]}>
-              <Menu />
-            </Animated.View>
-    
-            {/* Main Content */}
-            <View style={styles.mainContent}>
-              {isLoading ? (
-                <SplashScreen onFadeComplete={handleFadeComplete} />
-              ) : (
-                <HomeScreen onHamburgerPress={toggleMenu} />
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {/* Splash Screen */}
+        {isLoading ? (
+          <Stack.Screen name="Splash">
+            {() => <SplashScreen onFadeComplete={handleFadeComplete} />}
+          </Stack.Screen>
+        ) : (
+          <>
+            {/* Home Screen */}
+            <Stack.Screen name="Home">
+              {() => (
+                <View style={{ flex: 1 }}>
+                  {/* Menu Side Bar */}
+                  <Animated.View style={[styles.menuContainer, { transform: [{ translateX: menuAnimation }] }]}>
+                    <Menu />
+                  </Animated.View>
+
+                  {/* Main Content */}
+                  <HomeScreen onHamburgerPress={toggleMenu} />
+
+                  {/* Overlay to close menu when clicked outside */}
+                  {menuVisible && (
+                    <TouchableWithoutFeedback onPress={toggleMenu}>
+                      <View style={styles.overlay} />
+                    </TouchableWithoutFeedback>
+                  )}
+                </View>
               )}
-            </View>
-            
-            {/* Overlay to close menu when clicked outside */}
-            {menuVisible && (
-              <TouchableWithoutFeedback onPress={toggleMenu}>
-                <View style={styles.overlay} />
-              </TouchableWithoutFeedback>
-            )}
-          </View>
+            </Stack.Screen>
+
+            {/* Cart Screen */}
+            <Stack.Screen name="Cart" component={Cart} />
+          </>
+        )}
       </Stack.Navigator>
-      
     </NavigationContainer>
   );
 };

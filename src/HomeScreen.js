@@ -1,12 +1,15 @@
 import React from "react";
 import { View, StyleSheet, Text, Button, TouchableOpacity, ScrollView, Image } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Furniture from '../src/Data/ImageData';
+import Furniture from './Data/ImageData';
+import { useNavigation } from "expo-router";
+
 
 
 
 function HomeScreen({onHamburgerPress}) {
     
+    const navigation = useNavigation();
 
     const img = Furniture.Images;
     const data = img.map((item) => {
@@ -34,7 +37,7 @@ function HomeScreen({onHamburgerPress}) {
                 <Text style={styles.text}><Text style={styles.innerText}>Furni</Text>Store</Text>
                 <View style={styles.navbarRight}>
                     <Icon name="search" size={25} color="#8C8C8C" />
-                    <Icon name="shopping-cart" size={25} color="#8C8C8C" />
+                    <Icon name="shopping-cart" size={25} color="#8C8C8C" onPress={() => navigation.navigate('Cart')} />
                 </View>
             </View>
             <View style={styles.buttons_container}>
