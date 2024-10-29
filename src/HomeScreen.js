@@ -14,19 +14,21 @@ function HomeScreen({onHamburgerPress}) {
     const img = Furniture.Images;
     const data = img.map((item) => {
         return(
-            <View key={item.id} style={styles.productItem}>
-                <View style={styles.productImagePlaceholder}>
-                    <Image source={item.image} style={{width: '100%', height: '100%'}} resizeMode="contain"/>
-                </View>
-                <Text style={styles.productName}>{item.name}</Text>
-                <Text style={styles.productPrice}>Price: GH₵{item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
-                {item.discount && (
-                    <View style={styles.discount_container}>
-                        <Text style={styles.discount}>-{item.discount}%</Text>
+            <TouchableOpacity key={item.id} style={styles.productItem} onPress={() => navigation.navigate('ItemOverview', { item: item })}>
+                <View>
+                    <View style={styles.productImagePlaceholder} >
+                        <Image source={item.image} style={{width: '100%', height: '100%'}} resizeMode="contain"/>
                     </View>
-                )}
-
-            </View>
+                    <Text style={styles.productName}>{item.name}</Text>
+                    <Text style={styles.productPrice}>Price: GH₵{item.discount ? parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price): item.price}</Text>
+                    {item.discount && (
+                        <View style={styles.discount_container}>
+                            <Text style={styles.discount}>-{item.discount}%</Text>
+                        </View>
+                    )}
+                </View>
+            </TouchableOpacity>
+            
         )
     })
     

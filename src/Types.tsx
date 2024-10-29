@@ -3,6 +3,6 @@ export type RootStackParamList = {
     Home: undefined;
     Cart: undefined;
     Splash: undefined;
-    // Add other routes here
+    ItemOverview: undefined;
   };
   

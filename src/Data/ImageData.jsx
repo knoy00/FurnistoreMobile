@@ -67,9 +67,11 @@ const Furniture = {
             id: 9,
             name: 'Queen Size Bed - Carel',
             image: require('../../assets/images/queenFrameless.png'),
-            description: 'A comfortable and stylish chair.',
+            description: 'A comfortable and stylish bed to elevate your comfort.',
             price: '2990',
-            discount: '2'
+            discount: '2',
+            rate: '4.3',
+
         },
         {
             id: 10,

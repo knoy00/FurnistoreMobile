@@ -5,6 +5,7 @@ import SplashScreen from '../src/SplashScreen';
 import HomeScreen from '../src/HomeScreen';
 import Menu from '../src/SideMenu';
 import Cart from '../src/Cart';
+import ItemOverview from '@/src/ItemOverview';
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {RootStackParamList} from '../src/Types';
@@ -66,6 +67,9 @@ const Layout = () => {
 
             {/* Cart Screen */}
             <Stack.Screen name="Cart" component={Cart} />
+
+            {/* ItemOverview Screen */}
+            <Stack.Screen name="ItemOverview" component={ItemOverview} />
           </>
         )}
       </Stack.Navigator>
