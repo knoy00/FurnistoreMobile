@@ -4,7 +4,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Furniture from '../src/Data/ImageData';
 
 
+
 function HomeScreen({onHamburgerPress}) {
+    
+
     const img = Furniture.Images;
     const data = img.map((item) => {
         return(
