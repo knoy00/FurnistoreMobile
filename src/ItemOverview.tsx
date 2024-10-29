@@ -8,36 +8,54 @@ function ItemOverview({route}) {
 
     if(!item){
         return(
-            <View style={style.container}>
-                <Text>Item Not found</Text>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: "center"}}>
+                <Text style={{fontSize: 40, fontWeight: 'bold', color: "#ef7b1c"}}>Item Not found!</Text>
             </View>
         )
     }
   return (
     <View style={style.container}>
+
         <View style={{height: 85, backgroundColor: '#faf4f0'}}>
-         <FontAwesome name="angle-left" size={40} color="black" style={{marginTop: 50, paddingLeft: 20, backgroundColor: '#faf4f0', width: '15%'}}/>
+         <FontAwesome name="angle-left" size={40} color="#ef7b1c" style={{marginTop: 50, paddingLeft: 20, backgroundColor: '#faf4f0', width: '15%'}}/>
         </View>
+
        <View style={style.imageBox}>
         <Image source={item.image} style={{width: '100%', height: "100%"}} resizeMode='contain'/>
        </View>
+
        <View style={style.descriptionBox}>
+
         <View style={style.rate}>
-            <AntDesign name="star" size={21} color="#ef7b1c" />
+            <AntDesign name="star" size={17} color="#ef7b1c" />
             <Text style={style.rateText}>{item.rate}</Text>
         </View>
+
         <View style={style.name}>
             <Text style={style.nameText}>{item.name}</Text>
-            <Text style={style.nameText}>GH₵{item.price}</Text>
+            { item.discount ? <Text style={style.nameText}>GH₵{parseInt(item.price) - parseInt(item.discount)/100 * parseInt(item.price)}</Text> : <Text style={style.nameText}>GH₵{item.price}</Text>}
         </View>
+        { item.discount && (
+            <View style={style.name}>
+            <Text style={style.nameText}>Discount:</Text>
+            <Text style={{fontSize: 18, fontWeight: 'bold', color: 'red'}}>-{item.discount}%</Text>
+            
+        </View>
+        )}
+
         <View style={style.divider}></View>
+
         <View>
             <Text style={{fontSize: 20, fontWeight: 'bold', color: '#695545', paddingBottom: 10, marginTop: 10}}>Description:</Text>
             <Text style={style.descriptionText}>{item.description}</Text>
         </View>
+
+        <View style={style.divider}></View>
+
         <TouchableOpacity style={style.addToCart}>
             <Text style={{fontSize: 19, fontWeight: 'bold', color: '#ffffff'}}>Add to cart</Text>
         </TouchableOpacity>
+
        </View>
     </View>
   )
@@ -81,7 +99,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         marginTop: 10,
-        paddingBottom: 15
+        paddingBottom: 10
     },
     nameText: {
         fontSize: 20,
@@ -91,13 +109,13 @@ const style = StyleSheet.create({
         fontSize: 19,
         color: '#695545',
         lineHeight: 17 * 1.5,
-        height: 180,
+        height: 170,
     },
     addToCart: {
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#ff5f00',
         borderRadius: 30,
-        marginTop: 35
+        marginTop: 10
     }
 })

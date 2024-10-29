@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     promoContainer: {
         width: '95%',
         padding: 20,
-        backgroundColor: '#FFEEE5',
+        backgroundColor: '#faf4f0',
         borderRadius: 10,
         justifyContent: 'space-between',
         marginBottom: 20,
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     productImagePlaceholder: {
         width: '105%',
         height: 200,
-        backgroundColor: '#FFEEE5',
+        backgroundColor: '#faf4f0',
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',

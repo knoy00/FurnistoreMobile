@@ -60,6 +60,7 @@ const Furniture = {
             description: 'A comfortable and stylish chair.',
             price: '400',
             rate: '4.3',
+            discount: '10'
             
         },
         {

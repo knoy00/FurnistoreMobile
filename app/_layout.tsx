@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     width: '80%',
-    backgroundColor: '#000000',
+    backgroundColor: '#faf4f0',
     zIndex: 1,
   },
   mainContent: {

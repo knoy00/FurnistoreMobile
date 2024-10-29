@@ -164,12 +164,12 @@ export default Menu;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFEEE5',
+        backgroundColor: '#faf4f0',
         width: '100%',
         marginLeft: 0
     },
     logoContainer: {
-        backgroundColor: '#FFEEE5',
+        backgroundColor: '#faf4f0',
         width: '100%',
         height: 150,
         justifyContent: 'center',
