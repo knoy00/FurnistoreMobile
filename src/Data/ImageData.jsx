@@ -4,9 +4,10 @@ const Furniture = {
             id: 1,
             name: 'Grey Sofa',
             image: require('../../assets/images/greySofa.png'),
-            description: 'A comfortable and stylish chair.',
+            description: 'A comfortable and stylish chair. In this app, the home screen displays a list of products with images, names, and prices. Each product also displays any applicable discount percentage, calculated and displayed dynamically. Users can tap on any product to view more details on a dedicated ItemOverview page.',
             price: '2300',
-            discount: '5'
+            discount: '5',
+            rate: '4.3',
         },
         {
             id: 2,
@@ -14,7 +15,8 @@ const Furniture = {
             image: require('../../assets/images/yellowSofa.png'),
             description: 'A comfortable and stylish chair.',
             price: '1500',
-            discount: '5'
+            discount: '5',
+            rate: '4.3',
         },
         {
             id: 3,
@@ -22,7 +24,8 @@ const Furniture = {
             image: require('../../assets/images/plainWood.png'),
             description: 'A comfortable and stylish chair.',
             price: '2300',
-            discount: '5'
+            discount: '5',
+            rate: '4.3',
         },
         {
             id: 4,
@@ -30,7 +33,8 @@ const Furniture = {
             image: require('../../assets/images/smallTable.png'),
             description: 'A comfortable and stylish chair.',
             price: '2300',
-            discount: '15'
+            discount: '15',
+            rate: '4.3',
         },
         {
             id: 5,
@@ -46,7 +50,8 @@ const Furniture = {
             image: require('../../assets/images/redSofa.png'),
             description: 'A comfortable and stylish chair.',
             price: '2300',
-            discount: '5'
+            discount: '5',
+            rate: '4.3',
         },
         {
             id: 7,
@@ -54,6 +59,7 @@ const Furniture = {
             image: require('../../assets/images/barStool1.png'),
             description: 'A comfortable and stylish chair.',
             price: '400',
+            rate: '4.3',
             
         },
         {
