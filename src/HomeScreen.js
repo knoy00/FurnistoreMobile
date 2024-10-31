@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Text, Button, TouchableOpacity, ScrollView, Image } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Furniture from './Data/ImageData';
@@ -10,11 +10,15 @@ import { useNavigation } from "expo-router";
 function HomeScreen({onHamburgerPress}) {
     
     const navigation = useNavigation();
+    const [cart, setCart] = useState([]);
+    function addToCart(item) {
+        setCart(prevCart => [...prevCart, item]);
+    }
 
     const img = Furniture.Images;
     const data = img.map((item) => {
         return(
-            <TouchableOpacity key={item.id} style={styles.productItem} onPress={() => navigation.navigate('ItemOverview', { item: item })}>
+            <TouchableOpacity key={item.id} style={styles.productItem} onPress={() => navigation.navigate('ItemOverview', { item: item, addToCart })}>
                 <View>
                     <View style={styles.productImagePlaceholder} >
                         <Image source={item.image} style={{width: '100%', height: '100%'}} resizeMode="contain"/>
@@ -39,7 +43,7 @@ function HomeScreen({onHamburgerPress}) {
                 <Text style={styles.text}><Text style={styles.innerText}>Furni</Text>Store</Text>
                 <View style={styles.navbarRight}>
                     <Icon name="search" size={25} color="#8C8C8C" />
-                    <Icon name="shopping-cart" size={25} color="#8C8C8C" onPress={() => navigation.navigate('Cart')} />
+                    <Icon name="shopping-cart" size={25} color="#8C8C8C" onPress={() => navigation.navigate('Cart', {cart})} />
                 </View>
             </View>
             <View style={styles.buttons_container}>
@@ -246,8 +250,8 @@ const styles = StyleSheet.create({
     },
     discount_container: {
         position: 'absolute',
-        left: 20,
-        top: 17,
+        left: 10,
+        top: 12,
         borderRadius: 10,
         padding: 5,
         backgroundColor: '#FF5F00',

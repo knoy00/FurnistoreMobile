@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 function ItemOverview({route}) {
-    const {item} = route.params || {};
+    const {item, addToCart} = route.params || {};
 
     if(!item){
         return(
@@ -13,6 +13,8 @@ function ItemOverview({route}) {
             </View>
         )
     }
+
+    
   return (
     <View style={style.container}>
 
@@ -52,7 +54,7 @@ function ItemOverview({route}) {
 
         <View style={style.divider}></View>
 
-        <TouchableOpacity style={style.addToCart}>
+        <TouchableOpacity style={style.addToCart} onPress={() => addToCart(item)}>
             <Text style={{fontSize: 19, fontWeight: 'bold', color: '#ffffff'}}>Add to cart</Text>
         </TouchableOpacity>
 
@@ -92,7 +94,9 @@ const style = StyleSheet.create({
     },
     rateText: {
         fontSize: 20,
+        color: "#636363",
         fontWeight: 'bold'
+    
     },
     name: {
         flexDirection: 'row',

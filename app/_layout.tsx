@@ -33,6 +33,11 @@ const Layout = () => {
     setMenuVisible(!menuVisible);
   };
 
+  const addToCart = (item) => {
+    // Implement the logic to add the item to the cart here
+    console.log("Item added to cart:", item);
+  };
+
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -69,7 +74,7 @@ const Layout = () => {
             <Stack.Screen name="Cart" component={Cart} />
 
             {/* ItemOverview Screen */}
-            <Stack.Screen name="ItemOverview" component={ItemOverview} />
+            <Stack.Screen name="ItemOverview" component={ItemOverview} addToCart={addToCart}/>
           </>
         )}
       </Stack.Navigator>
