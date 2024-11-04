@@ -43,7 +43,7 @@ function HomeScreen({onHamburgerPress}) {
                 <Text style={styles.text}><Text style={styles.innerText}>Furni</Text>Store</Text>
                 <View style={styles.navbarRight}>
                     <Icon name="search" size={25} color="#8C8C8C" />
-                    <View>
+                    <View onPress={() => navigation.navigate('Cart', {cart})}>
                         <Icon name="shopping-cart" size={25} color="#8C8C8C" onPress={() => navigation.navigate('Cart', {cart})} />
                         {cart.length > 0 && (
                             <View style={styles.cartNumber}>

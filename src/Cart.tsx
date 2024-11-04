@@ -69,8 +69,10 @@ const Cart = ({ route }) => {
                       </View>
                     </View>
                   </View>
+                  
                 </View>
               ))}
+             
             </ScrollView>
           </View>
           
@@ -118,15 +120,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cart: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#f5f5f5",
     flex: 1,
   },
   cartContainer: {
     padding: 10,
-    backgroundColor: '#ffffff'
+    backgroundColor: '#f5f5f5'
   },
   cartHeader: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#f5f5f5",
     paddingVertical: 20,
     paddingHorizontal: 10,
     alignItems: 'center',
@@ -146,19 +148,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 15,
     paddingHorizontal: 10,
-    backgroundColor: '#faf4f0',
-    borderRadius: 8,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 0,
     marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    
   },
   imageContainer: {
     backgroundColor: '#ffffff',
     borderRadius: 5,
     padding: 0,
+    shadowColor: "#000000",
+    shadowOffset: { width: 0.5, height: 10 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 1,
   },
   image: {
     width: 100,
@@ -205,8 +208,8 @@ const styles = StyleSheet.create({
   },
   totalContainer: {
     padding: 20,
-    backgroundColor: '#ffffff',
-    borderTopWidth: 1,
+    backgroundColor: '#f5f5f5',
+    borderTopWidth: 0,
     borderTopColor: '#c1c1c1',
     flexDirection: 'column',
     justifyContent: 'space-between'
