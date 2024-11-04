@@ -43,7 +43,15 @@ function HomeScreen({onHamburgerPress}) {
                 <Text style={styles.text}><Text style={styles.innerText}>Furni</Text>Store</Text>
                 <View style={styles.navbarRight}>
                     <Icon name="search" size={25} color="#8C8C8C" />
-                    <Icon name="shopping-cart" size={25} color="#8C8C8C" onPress={() => navigation.navigate('Cart', {cart})} />
+                    <View>
+                        <Icon name="shopping-cart" size={25} color="#8C8C8C" onPress={() => navigation.navigate('Cart', {cart})} />
+                        {cart.length > 0 && (
+                            <View style={styles.cartNumber}>
+                                <Text style={{color: 'white', fontSize: 15, textAlign: 'center', fontWeight: 'bold'}}>{cart.length}</Text>
+                            </View>)
+                        }
+                    </View>
+                    
                 </View>
             </View>
             <View style={styles.buttons_container}>
@@ -262,5 +270,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white'
     },
+    cartNumber: {
+        backgroundColor: 'red',
+        width: 18,
+        height: 16,
+        borderRadius: 10,
+        position: 'absolute',
+        top: 0,
+        left: 15
+    }
 });
 

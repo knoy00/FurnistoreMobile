@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, StyleSheet, Image, Dimensions } from "react-native";
+import { View, Text, ScrollView, StyleSheet, Image, Dimensions, TouchableOpacity } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { parse } from "@babel/core";
 
@@ -30,9 +30,10 @@ const Cart = ({ route }) => {
     return acc + price * quantities[index];
   }, 0)
 
-  const shipping = 150;
-  const tax = 0.1 * subTotal;
-  const total = subTotal + shipping + tax
+  const shipping = (150);
+  const tax = (0.1 * subTotal);
+  const total = (subTotal + shipping + tax).toFixed(2);;
+
 
   return (
     <>
@@ -75,24 +76,28 @@ const Cart = ({ route }) => {
           
           <View style={styles.totalContainer}>
             <View style={styles.totalText}>
-              <Text>Sub Total</Text>
-              <Text>GHC{subTotal}</Text>
+              <Text style={styles.totalTextSubheader}>Sub Total</Text>
+              <Text style={styles.totalTextSubheaderValue}>GH₵ {subTotal.toFixed(2)}</Text>
             </View>
 
             <View style={styles.totalText}>
-              <Text>Shipping</Text>
-              <Text>GHC{shipping}</Text>
+              <Text style={styles.totalTextSubheader}>Shipping</Text>
+              <Text style={styles.totalTextSubheaderValue}>GH₵ {shipping}</Text>
             </View>
 
             <View style={styles.totalText}>
-              <Text>Tax(10%)</Text>
-              <Text>{tax}</Text>
+              <Text style={styles.totalTextSubheader}>Tax(10%)</Text>
+              <Text style={styles.totalTextSubheaderValue}>GH₵ {tax.toFixed(2)}</Text>
             </View>
             
             <View style={styles.totalText}>
-              <Text>Total</Text>
-              <Text>{total}</Text>
+              <Text style={styles.totalTextSubheader}>Total</Text>
+              <Text style={styles.totalTextSubheaderValue}>GH₵ {total}</Text>
             </View>
+
+            <TouchableOpacity style={styles.checkout} onPress={() => addToCart(item)}>
+            <Text style={{fontSize: 19, fontWeight: 'bold', color: '#ffffff'}}>Checkout</Text>
+            </TouchableOpacity>
 
           </View>
 
@@ -133,7 +138,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   scrollContainer: {
-    height: Dimensions.get('window').height * 0.6, // 60% of screen height
+    height: Dimensions.get('window').height * 0.6,
     overflow: 'hidden',
   },
   itemContainer: {
@@ -200,15 +205,34 @@ const styles = StyleSheet.create({
   },
   totalContainer: {
     padding: 20,
-    backgroundColor: 'yellow',
-    borderTopWidth: 2,
+    backgroundColor: '#ffffff',
+    borderTopWidth: 1,
+    borderTopColor: '#c1c1c1',
     flexDirection: 'column',
     justifyContent: 'space-between'
   },
   totalText: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingBottom: 20
+  },
+  totalTextSubheader: {
+    color: 'grey',
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  totalTextSubheaderValue: {
+    color: "#000000",
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  checkout: {
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#ff5f00',
+    borderRadius: 30,
+    marginTop: 10
   }
 
 });
