@@ -49,7 +49,8 @@ const Cart = ({ route }) => {
           <View style={styles.scrollContainer}>
             <ScrollView contentContainerStyle={styles.cartContainer}>
               {cart.map((cartItem, index) => (
-                <View key={index} style={styles.itemContainer}>
+                <View>
+                  <View key={index} style={styles.itemContainer}>
                   <View style={styles.imageContainer}>
                     <Image source={cartItem.image} style={styles.image} />
                   </View>
@@ -69,13 +70,16 @@ const Cart = ({ route }) => {
                       </View>
                     </View>
                   </View>
-                  
                 </View>
+                <View style={styles.divider}></View>
+
+              </View>
+                
               ))}
              
             </ScrollView>
           </View>
-          
+          <View style={styles.divider}></View>
           <View style={styles.totalContainer}>
             <View style={styles.totalText}>
               <Text style={styles.totalTextSubheader}>Sub Total</Text>
@@ -128,7 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5'
   },
   cartHeader: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#ffffff",
     paddingVertical: 20,
     paddingHorizontal: 10,
     alignItems: 'center',
@@ -202,14 +206,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   divider: {
-    width: '100%',
+    width: '90%',
     borderBottomColor: '#d8d8d8',
     borderBottomWidth: 1,
+    alignSelf: 'center'
   },
   totalContainer: {
     padding: 20,
     backgroundColor: '#f5f5f5',
-    borderTopWidth: 0,
     borderTopColor: '#c1c1c1',
     flexDirection: 'column',
     justifyContent: 'space-between'
